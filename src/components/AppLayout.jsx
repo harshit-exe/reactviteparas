@@ -33,7 +33,9 @@ export default function AppLayout({ children }) {
   }, [location.pathname])
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen)
-
+  const handleLogOut = ()=>{
+    navigate("/login")
+  }
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
@@ -77,10 +79,11 @@ export default function AppLayout({ children }) {
             className="w-full justify-start text-sm font-medium text-red-600 hover:bg-red-50 hover:text-red-700"
             onClick={() => {
               console.log('Logging out...')
+              handleLogOut()
               // Implement logout functionality here
             }}
           >
-            <LogOut className="mr-3 h-5 w-5" />
+            <LogOut  className="mr-3 h-5 w-5" />
             Log out
           </Button>
         </div>
